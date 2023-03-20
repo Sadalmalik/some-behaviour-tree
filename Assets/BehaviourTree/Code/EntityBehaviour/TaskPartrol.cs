@@ -9,21 +9,21 @@ namespace Sadalmalik.BehaviourTree
 
 		private int _currentWaypointIndex = 0;
 
-		private float _waitTime    = 1f; // in seconds
-		private float _waitCounter = 0f;
-		private bool  _waiting     = false;
-		private string  _lastWaypoint;
+		private float  _waitTime    = 1f; // in seconds
+		private float  _waitCounter = 0f;
+		private bool   _waiting     = false;
+		private string _lastWaypoint;
 
-		private float _speed = 0;
+		private float _speed;
 		
 		public TaskPartrol(Transform transform, Transform[] waypoints, float speed, string lastWaypointVariable)
 		{
 			_transform = transform;
 			_waypoints = waypoints;
 
-			_speed = speed;
-
 			_lastWaypoint = lastWaypointVariable;
+
+			_speed = speed;
 		}
 
 		public override BTState Tick(BTContext context)
@@ -40,9 +40,7 @@ namespace Sadalmalik.BehaviourTree
 			{
 				Transform wp = _waypoints[_currentWaypointIndex];
 				context.SetData(_lastWaypoint, wp);
-				
-				var self = context.GetData<MovableEntity>("self");
-				
+
 				if (Vector3.Distance(_transform.position, wp.position) < 0.01f)
 				{
 					_transform.position = wp.position;
@@ -60,7 +58,7 @@ namespace Sadalmalik.BehaviourTree
 					_transform.LookAt(wp.position);
 				}
 			}
-			
+
 			return BTState.Running;
 		}
 	}

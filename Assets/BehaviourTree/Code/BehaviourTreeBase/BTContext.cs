@@ -11,6 +11,8 @@ namespace Sadalmalik.BehaviourTree
 	{
 		private Dictionary<string, object> _data;
 
+		public Dictionary<string, object> Data => _data;
+		
 		public BTContext()
 		{
 			_data = new Dictionary<string, object>();

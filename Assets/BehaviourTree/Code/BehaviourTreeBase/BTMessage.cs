@@ -7,7 +7,7 @@ namespace Sadalmalik.BehaviourTree
 		public string  message;
 		public BTState state;
 
-		public BTMessage(string message, BTState state)
+		public BTMessage(string message, BTState state = BTState.Success)
 		{
 			this.message = message;
 			this.state   = state;

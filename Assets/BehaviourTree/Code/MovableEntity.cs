@@ -23,7 +23,7 @@ namespace Sadalmalik.BehaviourTree
 		public bool IsMooving => _move;
 		public bool IsReached => _reached;
 
-		private void Update()
+		protected virtual void Update()
 		{
 			MoveUpdate();
 		}
@@ -43,7 +43,7 @@ namespace Sadalmalik.BehaviourTree
 			_move    = false;
 		}
 
-		private void MoveUpdate()
+		protected void MoveUpdate()
 		{
 			if (!_move)
 				return;

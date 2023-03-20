@@ -10,9 +10,10 @@ namespace Sadalmalik.BehaviourTree
 		
 		public TaskMoveEntity(
 			MovableEntity entity,
-			float stoppingDistance,
-			string targetVariable)
-			: base("MoveEntity")
+			float         stoppingDistance,
+			string        targetVariable,
+			string        excludeGroup ="Move")
+			: base(excludeGroup)
 		{
 			_entity           = entity;
 			_stoppingDistance = stoppingDistance;
@@ -21,7 +22,6 @@ namespace Sadalmalik.BehaviourTree
 
 		public override void OnStart(BTContext context)
 		{
-			Debug.Log("TaskMoveEntity.OnStart");
 			var target    = (Transform) null;
 			var component = context.GetData<Component>(_targetVariable);
 
@@ -49,7 +49,6 @@ namespace Sadalmalik.BehaviourTree
 
 		public override BTState OnTick(BTContext context)
 		{
-			Debug.Log("TaskMoveEntity.OnTick");
 			if (_entity.IsMooving)
 				return BTState.Running;
 			if (_entity.IsReached)
@@ -59,7 +58,6 @@ namespace Sadalmalik.BehaviourTree
 
 		public override void OnHalt(BTContext context)
 		{
-			Debug.Log("TaskMoveEntity.OnHalt");
 			_entity.StopMove();
 		}
 	}

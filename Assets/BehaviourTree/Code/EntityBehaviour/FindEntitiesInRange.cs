@@ -31,10 +31,9 @@ namespace Sadalmalik.BehaviourTree
 				} )
 				.ToArray();
 
-			Debug.Log($"Found {objects.Length} objects!");
-			
 			if (objects.Length > 0)
 			{
+				Debug.Log($"Found {objects.Length} objects!");
 				context.SetData(variable, objects);
 				return BTState.Success;
 			}
