@@ -2,7 +2,7 @@
 
 namespace Sadalmalik.BehaviourTree
 {
-	public class SetVariable : BTNode
+	public class TaskVariableSet : BTNode
 	{
 		public string variableName;
 		public int    addition;
@@ -11,7 +11,7 @@ namespace Sadalmalik.BehaviourTree
 		public int? max;
 		public int? mod;
 
-		public SetVariable(
+		public TaskVariableSet(
 			string variableName,
 			int    addition,
 			int?   min = null,

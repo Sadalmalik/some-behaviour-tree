@@ -2,11 +2,11 @@
 
 namespace Sadalmalik.BehaviourTree
 {
-	public class KillEntity : BTNode
+	public class TaskKillEntity : BTNode
 	{
 		public string targetVariable;
 
-		public KillEntity(string targetVariable)
+		public TaskKillEntity(string targetVariable)
 		{
 			this.targetVariable = targetVariable;
 		}

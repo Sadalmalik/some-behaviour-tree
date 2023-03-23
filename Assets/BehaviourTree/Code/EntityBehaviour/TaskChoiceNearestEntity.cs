@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Sadalmalik.BehaviourTree
 {
-	public class ChoiceNearestEntity : BTNode
+	public class TaskChoiceNearestEntity : BTNode
 	{
 		public string listVariable;
 		public string entityVariable;
 
-		public ChoiceNearestEntity(
+		public TaskChoiceNearestEntity(
 			string listVariable,
 			string entityVariable)
 		{

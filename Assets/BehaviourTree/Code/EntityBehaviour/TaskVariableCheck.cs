@@ -2,12 +2,12 @@
 
 namespace Sadalmalik.BehaviourTree
 {
-	public class CheckVariable : BTNode
+	public class TaskVariableCheck : BTNode
 	{
 		public string variableName;
 		public int    targetValue;
 
-		public CheckVariable(string variableName, int targetValue)
+		public TaskVariableCheck(string variableName, int targetValue)
 		{
 			this.variableName = variableName;
 			this.targetValue  = targetValue;

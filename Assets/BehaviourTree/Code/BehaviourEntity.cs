@@ -71,18 +71,18 @@ namespace Sadalmalik.BehaviourTree
 			/*/
 			root = new BTSelector(
 				new BTSequence(
-					new CheckVariable("charges", 0),
-					new MoveWaypointToCurrentPosition("patrol-waypoint"),
+					new TaskVariableCheck("charges", 0),
+					new TaskMoveWaypointToCurrentPosition("patrol-waypoint"),
 					new TaskMoveEntity(this, radiusCharge, "recharger"),
 					new TaskWait(0.5f),
-					new SetVariable("charges", 3)
+					new TaskVariableSet("charges", 3)
 					),
 				new BTSequence(
-					new FindEntitiesInRange(radiusSearch, "entities"),
-					new ChoiceNearestEntity("entities", "target"),
+					new TaskFindEntities(radiusSearch, "entities"),
+					new TaskChoiceNearestEntity("entities", "target"),
 					new TaskMoveEntity(this, radiusAttack, "target"),
-					new KillEntity("target"),
-					new SetVariable("charges", -1)
+					new TaskKillEntity("target"),
+					new TaskVariableSet("charges", -1)
 					),
 				new BTSequence(
 					new TaskSelectElement<Transform>(
@@ -91,7 +91,7 @@ namespace Sadalmalik.BehaviourTree
 						"patrol-waypoint"),
 					new TaskMoveEntity(this, radiusMove, "patrol-waypoint"),
 					new TaskWait(0.5f),
-					new SetVariable("patrol-index", 1, mod: waypoints.Length)
+					new TaskVariableSet("patrol-index", 1, mod: waypoints.Length)
 					)
 				//new TaskPartrol(transform, waypoints, velocity, "patrol-waypoint")
 			);

@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Sadalmalik.BehaviourTree
 {
-	public class FindEntitiesInRange : BTNode
+	public class TaskFindEntities : BTNode
 	{
 		public float     radius;
 		public string    variable;
 
-		public FindEntitiesInRange(
+		public TaskFindEntities(
 			float     radius,
 			string    variable)
 		{

@@ -2,11 +2,11 @@
 
 namespace Sadalmalik.BehaviourTree
 {
-	public class MoveWaypointToCurrentPosition : BTNode
+	public class TaskMoveWaypointToCurrentPosition : BTNode
 	{
 		private string _lastWaypoint;
 		
-		public MoveWaypointToCurrentPosition(string waypointVariable)
+		public TaskMoveWaypointToCurrentPosition(string waypointVariable)
 		{
 			_lastWaypoint = waypointVariable;
 		}

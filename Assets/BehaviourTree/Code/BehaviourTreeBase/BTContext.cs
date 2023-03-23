@@ -1,10 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Sadalmalik.BehaviourTree
 {
 	public class Container<T> where T : struct
 	{
 		public T value;
+
+		public override string ToString()
+		{
+			return $"[ {typeof(T)} : {value} ]";
+		}
 	}
 	
 	public class BTContext
