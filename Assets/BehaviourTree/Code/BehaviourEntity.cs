@@ -70,21 +70,21 @@ namespace Sadalmalik.BehaviourTree
 				);
 			/*/
 			root = new BTSelector(
-				new BTSequence(
+				new BTSequence( // Перезарядка
 					new TaskVariableCheck("charges", 0),
 					new TaskMoveWaypointToCurrentPosition("patrol-waypoint"),
 					new TaskMoveEntity(this, radiusCharge, "recharger"),
 					new TaskWait(0.5f),
 					new TaskVariableSet("charges", 3)
 					),
-				new BTSequence(
+				new BTSequence( // Патрулирование
 					new TaskFindEntities(radiusSearch, "entities"),
 					new TaskChoiceNearestEntity("entities", "target"),
 					new TaskMoveEntity(this, radiusAttack, "target"),
 					new TaskKillEntity("target"),
 					new TaskVariableSet("charges", -1)
 					),
-				new BTSequence(
+				new BTSequence( // Уничтожение врагов
 					new TaskSelectElement<Transform>(
 						"patrol-path",
 						"patrol-index",
